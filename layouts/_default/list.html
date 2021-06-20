@@ -2,7 +2,7 @@
 <main id="list">
     <h1>{{ .Title }}</h1>
     <ul>
-        {{ range .Site.RegularPages }}
+        {{ range where .Pages "Section" (lower .Title) }}
         <li>
             <a href="{{ .Permalink }}">{{ .Title }}</a>
             <p>{{- partial "date.html" . -}}</p>
